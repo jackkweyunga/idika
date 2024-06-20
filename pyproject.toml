@@ -1,0 +1,24 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "idika"
+version = "0.1.2"
+authors = [
+  { name="Jack Kweyunga", email="jackkweyunga@gmail.com" },
+]
+description = "Unique ids generator implemented in rust"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jackkweyunga/idika"
+"Bug Tracker" = "https://github.com/jackkweyunga/idika/issues"
+
