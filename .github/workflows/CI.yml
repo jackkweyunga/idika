@@ -97,10 +97,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: seanmiddleditch/gha-setup-vsdevenv@master
+        with:
+          architecture: ${{ matrix.platform.target }}
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
-          architecture: ${{ matrix.platform.target }}
+          arch: ${{ matrix.platform.target }}
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
