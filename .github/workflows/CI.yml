@@ -97,7 +97,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up MSBuild
-        uses: microsoft/setup-msbuild@v4
+        uses: microsoft/setup-msbuild@v2
         with:
           msbuild-architecture: ${{ matrix.platform.target }}
       - uses: actions/setup-python@v5
