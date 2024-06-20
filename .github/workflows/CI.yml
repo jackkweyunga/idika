@@ -96,9 +96,10 @@ jobs:
             target: x86
     steps:
       - uses: actions/checkout@v4
-      - uses: seanmiddleditch/gha-setup-vsdevenv@master
+      - name: Set up MSBuild
+        uses: actions/setup-msbuild@v4
         with:
-          architecture: ${{ matrix.platform.target }}
+          msbuild-architecture: ${{ matrix.platform.target }}
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
