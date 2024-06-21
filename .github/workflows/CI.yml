@@ -102,10 +102,13 @@ jobs:
         with:
           python-version: 3.x
           arch: ${{ matrix.platform.arch }}
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform.target }}
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          target: ${{ matrix.platform.arch }}
+          target: ${{ matrix.platform.target }}
           args: --release --out dist --find-interpreter
           sccache: 'true'
         env:
