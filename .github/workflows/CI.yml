@@ -109,7 +109,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.platform.target }}
-          args: --release --out dist --find-interpreter
+          args: --release --out dist
           sccache: 'true'
         env:
           # aarch64 build fails, see https://github.com/PyO3/maturin/issues/2110
