@@ -86,30 +86,31 @@ jobs:
           path: dist
 
   windows:
-    runs-on: ${{ matrix.platform.runner }}
+    runs-on: windows-latest
     strategy:
       matrix:
         platform:
-          - runner: windows-latest
-            target: x64
-          - runner: windows-latest
-            target: x86
+          - target: x86_64-pc-windows-msvc
+            arch: x64
+          - target: i686-pc-windows-msvc
+            arch: x86
+          - target: aarch64-pc-windows-msvc
+            arch: x64
     steps:
       - uses: actions/checkout@v4
-      - name: Set up MSBuild
-        uses: microsoft/setup-msbuild@v2
-        with:
-          msbuild-architecture: ${{ matrix.platform.target }}
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
-          arch: ${{ matrix.platform.target }}
+          arch: ${{ matrix.platform.arch }}
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          target: ${{ matrix.platform.target }}
+          target: ${{ matrix.platform.arch }}
           args: --release --out dist --find-interpreter
           sccache: 'true'
+        env:
+          # aarch64 build fails, see https://github.com/PyO3/maturin/issues/2110
+          XWIN_VERSION: 16
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
