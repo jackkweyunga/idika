@@ -111,6 +111,7 @@ jobs:
           "@
           $fileName = ".config/config.toml"
           Out-File -FilePath $fileName -InputObject $content
+          ls
           
       - uses: actions/setup-python@v5
         with:
