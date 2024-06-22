@@ -99,7 +99,7 @@ jobs:
       - name: Prepare pnet dependences
         run: |
           mkdir -p Downloads
-          mkdir -p .config
+          mkdir -p .cargo
           tee .cargo/config.toml
           curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
           $content = @"
