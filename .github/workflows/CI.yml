@@ -92,8 +92,8 @@ jobs:
         platform:
           - target: x86_64-pc-windows-msvc
             arch: x64
-          - target: aarch64-pc-windows-msvc
-            arch: x64
+          # - target: aarch64-pc-windows-msvc
+          #   arch: x64
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
