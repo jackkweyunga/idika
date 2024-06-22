@@ -15,7 +15,7 @@ name = "idika"
 path = "src/main.rs"
 
 [dependencies]
-pyo3 = { version = "0.21.2", features = ["extension-module"] }
+pyo3 = { version = "0.21.2", features = ["extension-module", "abi3-py38"] }
 cuid2 = "0.1.2"
 sonyflake = "0.2.0"
 rayon = "1.8"
