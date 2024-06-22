@@ -100,11 +100,10 @@ jobs:
         run: |
           mkdir -p Downloads
           mkdir -p .cargo
-          fileName = ".cargo/config.toml"
 
-          tee $filename
+          tee .cargo/config.toml
           curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
-          echo << EOF > $filename
+          echo << EOF > .cargo/config.toml
           [target.${{ matrix.platform.target }}]
           rustflags = [
             "-C",
