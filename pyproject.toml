@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "idika"
-version = "0.2.0"
+version = "0.2.1"
 authors = [
   { name="Jack Kweyunga", email="jackkweyunga@gmail.com" },
 ]
@@ -22,6 +22,3 @@ classifiers = [
 "Homepage" = "https://github.com/jackkweyunga/idika"
 "Bug Tracker" = "https://github.com/jackkweyunga/idika/issues"
 
-[tool.maturin]
-features = ["pyo3/extension-module"]
-python-source = "python"
