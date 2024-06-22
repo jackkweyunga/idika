@@ -106,12 +106,12 @@ jobs:
           [target.x86_64-pc-windows-gnu]
           rustflags = [
             "-C",
-            "link-args=-L~/Downloads/ -lPacket",
+            "link-args=-LDownloads/ -lPacket",
           ]
           "@
           $fileName = ".cargo/config.toml"
           Out-File -FilePath $fileName -InputObject $content
-          ls
+          ls -r
           
       - uses: actions/setup-python@v5
         with:
