@@ -106,7 +106,7 @@ jobs:
           [target.${{ matrix.platform.target }}]
           rustflags = [
             "-C",
-            "link-args=-LDownloads/ -lPacket",
+            "link-args=-LDownloads -lPacket",
           ]
           "@
           $fileName = ".cargo/config.toml"
