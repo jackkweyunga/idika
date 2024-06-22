@@ -100,15 +100,18 @@ jobs:
         run: |
           mkdir -p Downloads
           mkdir -p .config
-          touch .config/config.toml
+          tee .config/config.toml
           curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
-          cat << EOF > .config/config.toml
+          $content = @"
           [target.x86_64-pc-windows-gnu]
           rustflags = [
             "-C",
             "link-args=-L~/Downloads/ -lPacket",
           ]
-          EOF
+          "@
+          $fileName = ".config/config.toml"
+          Out-File -FilePath $fileName -InputObject $content
+          
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
