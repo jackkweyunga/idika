@@ -109,7 +109,7 @@ jobs:
             "link-args=-L~/Downloads/ -lPacket",
           ]
           "@
-          $fileName = ".config/config.toml"
+          $fileName = ".cargo/config.toml"
           Out-File -FilePath $fileName -InputObject $content
           ls
           
