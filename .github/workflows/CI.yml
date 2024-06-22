@@ -111,7 +111,7 @@ jobs:
           "@
           $fileName = ".cargo/config.toml"
           Out-File -FilePath $fileName -InputObject $content
-          ls -r
+          cat $fileName
           
       - uses: actions/setup-python@v5
         with:
