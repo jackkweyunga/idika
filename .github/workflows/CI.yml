@@ -86,7 +86,7 @@ jobs:
           path: dist
 
   windows:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         platform:
@@ -96,21 +96,6 @@ jobs:
           #   arch: x64
     steps:
       - uses: actions/checkout@v4
-      - name: Prepare pnet dependences
-        run: |
-          mkdir -p Downloads
-          mkdir -p .cargo
-
-          tee .cargo/config.toml
-          curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
-          echo << EOF > .cargo/config.toml
-          [target.${{ matrix.platform.target }}]
-          rustflags = [
-            "-C",
-            "link-args=-L./Downloads -lPacket",
-          ]
-          EOF
-          
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'

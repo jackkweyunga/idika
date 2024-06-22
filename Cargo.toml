@@ -10,13 +10,8 @@ authors = [
 name = "idika"
 crate-type = ["cdylib", "rlib"]
 
-[[bin]]
-name = "idika"
-path = "src/main.rs"
-
 [dependencies]
 pyo3 = { version = "0.21.2", features = ["abi3-py37"] }
 cuid2 = "0.1.2"
-sonyflake = "0.2.0"
 rayon = "1.8"
 
