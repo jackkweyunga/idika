@@ -11,7 +11,7 @@ authors = [
 description = "Unique ids generator implemented in rust"
 readme = "README.md"
 license = { file="LICENSE" }
-requires-python = ">3"
+requires-python = ">3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -22,3 +22,7 @@ classifiers = [
 "Homepage" = "https://github.com/jackkweyunga/idika"
 "Bug Tracker" = "https://github.com/jackkweyunga/idika/issues"
 
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "idika.idika"
