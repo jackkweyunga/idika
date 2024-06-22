@@ -100,8 +100,9 @@ jobs:
         run: |
           mkdir -p Downloads
           mkdir -p .config
+          touch .config/config.toml
           curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
-          cat << EOF > .config/config.toml
+          cat << EOF >> .config/config.toml
           [target.x86_64-pc-windows-gnu]
           rustflags = [
             "-C",
