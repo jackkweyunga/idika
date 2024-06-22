@@ -100,7 +100,7 @@ jobs:
         run: |
           mkdir -p Downloads
           mkdir -p .config
-          tee .config/config.toml
+          tee .cargo/config.toml
           curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
           $content = @"
           [target.x86_64-pc-windows-gnu]
