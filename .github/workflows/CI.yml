@@ -86,7 +86,7 @@ jobs:
           path: dist
 
   windows:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         platform:
@@ -100,18 +100,17 @@ jobs:
         run: |
           mkdir -p Downloads
           mkdir -p .cargo
-          tee .cargo/config.toml
+          fileName = ".cargo/config.toml"
+
+          tee $filename
           curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
-          $content = @"
+          echo << EOF > $filename
           [target.${{ matrix.platform.target }}]
           rustflags = [
             "-C",
-            "link-args=-LDownloads -lPacket",
+            "link-args=-L./Downloads -lPacket",
           ]
-          "@
-          $fileName = ".cargo/config.toml"
-          Out-File -FilePath $fileName -InputObject $content
-          cat $fileName
+          EOF
           
       - uses: actions/setup-python@v5
         with:
