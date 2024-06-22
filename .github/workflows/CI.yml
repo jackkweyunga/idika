@@ -96,6 +96,18 @@ jobs:
           #   arch: x64
     steps:
       - uses: actions/checkout@v4
+      - name: Prepare pnet dependences
+        run: |
+          mkdir -p Downloads
+          mkdir -p .config
+          curl -o Downloads/Packet.lib -L https://github.com/patmarion/winpcap/raw/master/Lib/x64/Packet.lib
+          cat << EOF >> .config/config.toml
+          [target.x86_64-pc-windows-gnu]
+          rustflags = [
+            "-C",
+            "link-args=-L~/Downloads/ -lPacket",
+          ]
+          EOF
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
