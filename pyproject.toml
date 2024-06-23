@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "idika"
-version = "0.2.1"
+version = "0.3.1"
 authors = [
   { name="Jack Kweyunga", email="jackkweyunga@gmail.com" },
 ]
