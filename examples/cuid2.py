@@ -1,15 +1,19 @@
 from idika import with_cuid, n_with_cuid
 import time
 
+def process_id(id):
+    # do some functionality
+    print(id)
+
 N = 15
-C = 1000000
+C = 100
 # generate a snowflake unique id
 print("ID: ", with_cuid(N))
 
 # generate many snowflake unique ids
 start = time.time()
-ids = n_with_cuid(C, N)
+ids = n_with_cuid(C, N).pipe(process_id)
 end = time.time()
 
-print("IDs: ", len(ids))
+print("IDs: ", len(ids.result))
 print("Took: ", end - start, "s")
