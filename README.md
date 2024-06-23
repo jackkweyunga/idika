@@ -39,6 +39,15 @@ output:
 ]
 """
 
+# Pipe
+# Run a certain function on all ids generated.
+def process_id(id):
+    # doing some processing
+    # ... e.g database calls 
+    print(id)
+
+idika.n_with_cuid(1000, 10).pipe(process_id)
+
 ```
 
 

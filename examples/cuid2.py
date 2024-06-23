@@ -7,10 +7,11 @@ def process_id(id):
 
 N = 15
 C = 100
-# generate a snowflake unique id
+# generate a cuid2 unique id
 print("ID: ", with_cuid(N))
 
-# generate many snowflake unique ids
+# generate many cuid2 unique ids
+# Pipe the result to a function
 start = time.time()
 ids = n_with_cuid(C, N).pipe(process_id)
 end = time.time()
